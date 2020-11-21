@@ -5,8 +5,17 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    public bool UseMouseAim;
-    public GameObject CurrentAim;
+    public GameObject Sword;
+    public float SwordCooldown;
+    bool  CanUseSword = true;
+
+    public Transform ShootPoint;
+    public GameObject Bullet;
+    public float GunCooldown;
+    bool CanFireGun = true;
+
+    public Spell CurrentSpell;
+    
 
 
     // Update is called once per frame
@@ -14,14 +23,14 @@ public class PlayerAttack : MonoBehaviour
     {
 
         if(Input.GetAxis("Fire1") != 0){
-
+            UseSword();
         }
         if(Input.GetAxis("Fire2") != 0){
-
+            FireGun();
         }
 
         if(Input.GetAxis("Fire3") != 0){
-
+            UseSpell();
         }
 
 
@@ -29,11 +38,32 @@ public class PlayerAttack : MonoBehaviour
 
 
     void UseSword(){
+        if(CanUseSword){
+            CanUseSword = false;
+
+            Invoke("RefreshSword",SwordCooldown);
+
+        }
 
     }
 
-    void FireGun(){
+    void RefreshGSword(){
+        CanUseSword = true;
+    }
 
+
+
+    void FireGun(){
+        if(CanFireGun){
+            CanFireGun = false;
+            Instantiate(Bullet,ShootPoint.position,Quaternion.identity);
+            Invoke("RefreshGun",GunCooldown);
+        }
+
+    }
+
+    void RefreshGun(){
+        CanFireGun = true;
     }
 
 
