@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-
-
-    public float BulletSpeed;
-    public int damage;
+    private Vector2 velocity;
+    
+    public int Damage { set; get;}
 
     // Start is called before the first frame update
     void Start()
@@ -18,19 +17,27 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(0,1*BulletSpeed * Time.fixedDeltaTime,0));
+        transform.Translate(velocity*Time.deltaTime);
     }
 
 
-    void OnCollisionEnter(Collision col){
+    /*void OnCollisionEnter(Collision col){
         if(col.gameObject.CompareTag("Character")){
             col.gameObject.GetComponent<CharacterController>().PhysicalHit(damage);
         }
-    }
+    }*/
 
     void OnBecameInvisible(){
         Destroy(gameObject);
     }
 
+    public void setVelocity(float f)
+    {
+        velocity = new Vector2(0, f);
+    }
 
+    public Vector2 getVelocity()
+    {
+        return velocity;
+    }
 }

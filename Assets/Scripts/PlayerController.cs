@@ -9,7 +9,4 @@ public class PlayerController : CharacterController
     {
         MoveSpeed = 5;
     }
-
-
-
 }

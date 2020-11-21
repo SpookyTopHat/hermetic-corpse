@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour{
 
     Rigidbody rb;
     PlayerController playerController;
+    
 
     void Awake(){
         playerController = GetComponent<PlayerController>();
