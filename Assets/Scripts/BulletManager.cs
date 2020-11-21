@@ -5,27 +5,21 @@ using UnityEngine;
 /* 
  * A library for loading and firing bullets.
  * credit to http://prof.johnpile.com/2014/07/20/globalprefabs/ for this alg, and for teaching me what hash codes are used for
+ * and to Lurking_Ninja on this thread: - 
  */
-public class BulletManager : ScriptableObject
+public class BulletManager : MonoBehaviour
 {
     public static Dictionary<int, GameObject> bullets = new Dictionary<int, GameObject>();
 
-    public void Awake()
+    void Awake()
     {
-       
-    }
-
-    public static void LoadBullets(string bulletPath)
-    {
-        Object[] BulletArray = Resources.LoadAll(bulletPath);
-        if (bulletPath.Length == 0)
+        Object[] BulletArray = Resources.LoadAll("Bullets");
+        foreach (Object b in BulletArray)
         {
-            Debug.Log("empty");
+            bullets.Add(b.name.GetHashCode(), (GameObject)b);
         }
-        foreach(Object b in BulletArray)
-        {
-            bullets.Add(b.name.GetHashCode(), (GameObject) b);
-        }
+        Debug.Log("Wakey Wakey");
+        
     }
 
     public static GameObject getPrefab(string objName)
@@ -41,6 +35,7 @@ public class BulletManager : ScriptableObject
             return (null);
         }
     }
+
     public static void Fire(string bulletName, Vector2 pos, float zAngle, float vel)
     {
         GameObject bullet = getPrefab(bulletName);

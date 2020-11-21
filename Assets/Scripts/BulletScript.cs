@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     private Vector2 velocity;
-    
-    public int Damage { set; get;}
+
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class BulletScript : MonoBehaviour
 
     public void setVelocity(float f)
     {
-        velocity = new Vector2(0, f);
+        velocity = new Vector2(f, 0);
     }
 
     public Vector2 getVelocity()

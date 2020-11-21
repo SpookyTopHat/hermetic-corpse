@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class testPattern00 : MonoBehaviour
 {
-
-    float timer = 3f;
+    int count = 0;
+    float timer = 1f;
     GameObject bb;
 
     // Start is called before the first frame update
     void Start()
     {
-        BulletManager.LoadBullets("Bullets");
+        //BulletManager.LoadBullets("Bullets");
     }
 
     // Update is called once per frame
@@ -22,10 +22,11 @@ public class testPattern00 : MonoBehaviour
         if (timer <= 0)
         {
             for (int i = 0; i < 10; ++i) {
-                BulletManager.Fire("BallBoring", transform.position, 360f*i/10f, 2f);
+                float angle = 360f * i / 10f + 2 * count;
+                BulletManager.Fire("BallBoring", (Vector2)transform.position + new Vector2((count % 5) * Mathf.Cos(Mathf.Deg2Rad*angle), (count % 5) * Mathf.Sin(Mathf.Deg2Rad*angle)), angle, 2f);
             }
-
-            timer = 3f;
+            ++count;
+            timer = 1f;
         }
     }
 }
