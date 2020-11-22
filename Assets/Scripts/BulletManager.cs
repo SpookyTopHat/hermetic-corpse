@@ -18,7 +18,6 @@ public class BulletManager : MonoBehaviour
         {
             bullets.Add(b.name.GetHashCode(), (GameObject)b);
         }
-        Debug.Log("Wakey Wakey");
         
     }
 

@@ -11,7 +11,6 @@ public class PlayerBulletHitbox : MonoBehaviour
         cc = GetComponentInParent<CharacterController>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -20,7 +19,8 @@ public class PlayerBulletHitbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.TryGetComponent(out BulletScript bs))
+        if (collision.gameObject.TryGetComponent(out BulletScript bs) 
+            && !cc.isIFrame)
         {
             cc.PhysicalHit(bs.damage);
             Destroy(collision.gameObject);
