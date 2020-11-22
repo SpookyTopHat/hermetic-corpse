@@ -7,6 +7,7 @@ public class EnemyController : CharacterController
     // Start is called before the first frame update
     void Start()
     {
+        setHealth(30);
         
     }
 

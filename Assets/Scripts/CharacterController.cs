@@ -10,7 +10,6 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField]
     int health;
-    public bool isIFrame;
 
     public void setHealth(int health)
     {
@@ -24,27 +23,19 @@ public class CharacterController : MonoBehaviour
 
     
     //Hit with physical damage.
-    public void PhysicalHit(int damage){
+    public virtual void PhysicalHit(int damage){
 
         health -= damage;
 
         if(health <= 0){
             PhysicalDeath();
-        } else
-        {
-            isIFrame = true;
-            Invoke("IFrames", 2);
         }
-    }
-
-    void IFrames(){
-        isIFrame = false;
     }
 
     //The methods that happen for death, Probably should override for the player.
 
     //Happens when physical health runs out, allows player to do attack on spirit, Will probably be adding effects to the characters
-    void PhysicalDeath(){
+    public void PhysicalDeath(){
         Destroy(this.gameObject);
     }
 }

@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBulletHitbox : MonoBehaviour
+public class EnemyBulletHitbox : MonoBehaviour
 {
-    private PlayerController pc;
+    private EnemyController ec;
     // Start is called before the first frame update
     void Start()
     {
-        pc = GetComponentInParent<PlayerController>();
+        ec = GetComponentInParent<EnemyController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet")
-            && !pc.isIFrame)
+        Debug.Log("Hit");
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerAttack"))
         {
-            pc.PhysicalHit(collision.gameObject.GetComponent<BulletScript>().damage);
+            Debug.Log("Hit");
+            ec.PhysicalHit(collision.gameObject.GetComponent<BulletScript>().damage);
             Destroy(collision.gameObject);
         }
     }
