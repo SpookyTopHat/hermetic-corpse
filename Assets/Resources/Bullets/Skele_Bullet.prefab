@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5715097763193660404
+--- !u!1 &3047077171797652389
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5715097763193660403}
-  - component: {fileID: 5715097763193660400}
-  - component: {fileID: 5715097763193660401}
-  - component: {fileID: 5715097763193660406}
-  - component: {fileID: 5715097763193660407}
-  m_Layer: 0
-  m_Name: Sphere
+  - component: {fileID: 3047077171797652386}
+  - component: {fileID: 3047077171797652385}
+  - component: {fileID: 3047077171797652384}
+  - component: {fileID: 3047077171797652391}
+  - component: {fileID: 3047077171797652390}
+  - component: {fileID: 8057433436363618059}
+  m_Layer: 8
+  m_Name: Skele_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5715097763193660403
+--- !u!4 &3047077171797652386
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715097763193660404}
+  m_GameObject: {fileID: 3047077171797652389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 2.7884383, z: -1.3762732}
-  m_LocalScale: {x: 0.8707765, y: 0.8707765, z: 0.8707765}
+  m_LocalPosition: {x: -5.21, y: 1.8850818, z: 1.583662}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5715097763193660400
+--- !u!33 &3047077171797652385
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715097763193660404}
+  m_GameObject: {fileID: 3047077171797652389}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5715097763193660401
+--- !u!23 &3047077171797652384
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715097763193660404}
+  m_GameObject: {fileID: 3047077171797652389}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 555503000ae31204a9cf90102db9b07b, type: 2}
+  - {fileID: 2100000, guid: e2d62bfaa7cb3ce47b4960f8b72cdf01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,28 +84,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5715097763193660406
+--- !u!135 &3047077171797652391
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715097763193660404}
+  m_GameObject: {fileID: 3047077171797652389}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!122 &5715097763193660407
+--- !u!122 &3047077171797652390
 Halo:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715097763193660404}
+  m_GameObject: {fileID: 3047077171797652389}
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4283684947
-  m_Size: 0.7
+    rgba: 4284242976
+  m_Size: 0.25
+--- !u!114 &8057433436363618059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047077171797652389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3115d6054822204f95268b9ce39164e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

@@ -23,7 +23,7 @@ public class testPattern00 : MonoBehaviour
         {
             for (int i = 0; i < 10; ++i) {
                 float angle = 360f * i / 10f + 2 * count;
-                BulletManager.Fire("BallBoring", (Vector2)transform.position + new Vector2((count % 5) * Mathf.Cos(Mathf.Deg2Rad*angle), (count % 5) * Mathf.Sin(Mathf.Deg2Rad*angle)), angle + 45, 2f);
+                BulletManager.Fire("Skele_Bullet", (Vector2)transform.position + new Vector2((count % 5) * Mathf.Cos(Mathf.Deg2Rad*angle), (count % 5) * Mathf.Sin(Mathf.Deg2Rad*angle)), angle + 45, 2f);
             }
             ++count;
             timer = 0.1f;

@@ -10,12 +10,17 @@ public class PlayerAttack : MonoBehaviour
     bool  CanUseSword = true;
 
     public Transform ShootPoint;
-    public GameObject Bullet;
     public float GunCooldown;
     bool CanFireGun = true;
 
     public Spell CurrentSpell;
-    
+
+    private void Awake()
+    {
+        GunCooldown = 0.1f;
+        CanFireGun = true;
+        ShootPoint = transform.GetChild(0); //should refer to the player's hitbox
+    }
 
 
     // Update is called once per frame
@@ -28,7 +33,6 @@ public class PlayerAttack : MonoBehaviour
         if(Input.GetAxis("Fire2") != 0){
             FireGun();
         }
-
         if(Input.GetAxis("Fire3") != 0){
             UseSpell();
         }
@@ -36,15 +40,11 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-
     void UseSword(){
         if(CanUseSword){
             CanUseSword = false;
-
             Invoke("RefreshSword",SwordCooldown);
-
         }
-
     }
 
     void RefreshGSword(){
@@ -56,10 +56,9 @@ public class PlayerAttack : MonoBehaviour
     void FireGun(){
         if(CanFireGun){
             CanFireGun = false;
-            Instantiate(Bullet,ShootPoint.position,Quaternion.identity);
+            BulletManager.Fire("Player_Bullet", ShootPoint.position, 90f, 20);
             Invoke("RefreshGun",GunCooldown);
         }
-
     }
 
     void RefreshGun(){

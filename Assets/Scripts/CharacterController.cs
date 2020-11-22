@@ -32,13 +32,12 @@ public class CharacterController : MonoBehaviour
             PhysicalDeath();
         } else
         {
-            StartCoroutine("IFrames", 2);
+            isIFrame = true;
+            Invoke("IFrames", 2);
         }
     }
 
-    private IEnumerator IFrames(float duration){
-        isIFrame = true;
-        yield return new WaitForSeconds(duration);
+    void IFrames(){
         isIFrame = false;
     }
 

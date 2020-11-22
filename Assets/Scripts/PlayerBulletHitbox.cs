@@ -19,10 +19,10 @@ public class PlayerBulletHitbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.TryGetComponent(out BulletScript bs) 
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet")
             && !cc.isIFrame)
         {
-            cc.PhysicalHit(bs.damage);
+            cc.PhysicalHit(collision.gameObject.GetComponent<BulletScript>().damage);
             Destroy(collision.gameObject);
         }
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     private Vector2 velocity;
-
     public int damage;
 
     // Start is called before the first frame update
