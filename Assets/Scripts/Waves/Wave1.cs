@@ -6,7 +6,7 @@ public class Wave1 : MonoBehaviour
 {
     private float timer = 0;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         BulletManager.LoadBullets();
         EnemyManager.LoadEnemies();
@@ -33,5 +33,6 @@ public class Wave1 : MonoBehaviour
             }
             yield return new WaitForSeconds(2f);
         }
+        Debug.Log("Skeleton't");
     }
 }
