@@ -12,7 +12,6 @@ public class BulletManager : ScriptableObject
 {
     public static Dictionary<int, GameObject> bullets = new Dictionary<int, GameObject>();
     private static bool isLoaded = false;
-
     /**
      * Loads the bullets into memory, if they're not already loaded.
      */
@@ -32,7 +31,6 @@ public class BulletManager : ScriptableObject
 
     /**
      * Type in the name of the bullet, and this will return the GameObject copy in the dictionary.
-     * 
      */
     public static GameObject getPrefab(string objName)
     {
@@ -48,6 +46,9 @@ public class BulletManager : ScriptableObject
         }
     }
 
+    /**
+     * Fires a bullet prefab of the specified name, at the specified position, angle (in terms of rotation around the z-axis) and velocity.
+     */
     public static void Fire(string bulletName, Vector2 pos, float zAngle, float vel)
     {
         GameObject bullet = getPrefab(bulletName);
