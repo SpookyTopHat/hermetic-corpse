@@ -22,7 +22,6 @@ public class EnemyBulletHitbox : MonoBehaviour
         Debug.Log("Hit");
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerAttack"))
         {
-            Debug.Log("Hit");
             ec.PhysicalHit(collision.gameObject.GetComponent<BulletScript>().damage);
             Destroy(collision.gameObject);
         }

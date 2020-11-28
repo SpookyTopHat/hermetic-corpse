@@ -5,22 +5,35 @@ using UnityEngine;
 /* 
  * A library for loading and firing bullets.
  * credit to http://prof.johnpile.com/2014/07/20/globalprefabs/ for this alg, and for teaching me what hash codes are used for
- * and to Lurking_Ninja on this thread: - 
  */
-public class BulletManager : MonoBehaviour
+
+[System.Serializable]
+public class BulletManager : ScriptableObject
 {
     public static Dictionary<int, GameObject> bullets = new Dictionary<int, GameObject>();
+    private static bool isLoaded = false;
 
-    void Awake()
+    /**
+     * Loads the bullets into memory, if they're not already loaded.
+     */
+    public static void LoadBullets()
     {
-        Object[] BulletArray = Resources.LoadAll("Bullets");
-        foreach (Object b in BulletArray)
+        if (!isLoaded)
         {
-            bullets.Add(b.name.GetHashCode(), (GameObject)b);
+            Object[] BulletArray = Resources.LoadAll("Bullets");
+            foreach (Object b in BulletArray)
+            {
+                bullets.Add(b.name.GetHashCode(), (GameObject)b);
+            }
+            //Debug.Log("All bullets are loaded!");
+            isLoaded = true;
         }
-        
     }
 
+    /**
+     * Type in the name of the bullet, and this will return the GameObject copy in the dictionary.
+     * 
+     */
     public static GameObject getPrefab(string objName)
     {
         GameObject obj;
@@ -39,7 +52,7 @@ public class BulletManager : MonoBehaviour
     {
         GameObject bullet = getPrefab(bulletName);
         if (bullet != null && bullet.TryGetComponent(out BulletScript bs))
-        {
+        {            
             GameObject cloon = Instantiate(bullet, pos, Quaternion.Euler(0, 0, zAngle)); //a clone of the prefab
             cloon.GetComponent<BulletScript>().setVelocity(vel);
         }
