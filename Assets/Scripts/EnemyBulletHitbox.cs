@@ -19,10 +19,9 @@ public class EnemyBulletHitbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Hit");
+        
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerAttack"))
         {
-            Debug.Log("Hit");
             ec.PhysicalHit(collision.gameObject.GetComponent<BulletScript>().damage);
             Destroy(collision.gameObject);
         }

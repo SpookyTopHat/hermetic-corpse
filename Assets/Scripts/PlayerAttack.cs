@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
     public GameObject Sword;
     public float SwordCooldown;
     bool  CanUseSword = true;
@@ -17,6 +16,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
+        BulletManager.LoadBullets(); //loads both the player's bullets and the enemies' bullets into memory, if they're not already in there.
+        //This is probably a suboptimal place to call it, and I'll be calling this from wave management scripts as well, *just in case*.
         GunCooldown = 0.1f;
         CanFireGun = true;
         ShootPoint = transform.GetChild(0); //should refer to the player's hitbox
