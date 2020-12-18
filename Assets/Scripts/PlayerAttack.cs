@@ -17,10 +17,9 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         BulletManager.LoadBullets(); //loads both the player's bullets and the enemies' bullets into memory, if they're not already in there.
-        //This is probably a suboptimal place to call it, and I'll be calling this from wave management scripts as well, *just in case*.
-        GunCooldown = 0.1f;
+        //This is probably a suboptimal place to call it, and I'll be calling this from wave management scripts as well, *just in case*
         CanFireGun = true;
-        ShootPoint = transform.GetChild(0); //should refer to the player's hitbox
+         //should refer to the player's hitbox
     }
 
 
@@ -48,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    void RefreshGSword(){
+    void RefreshSword(){
         CanUseSword = true;
     }
 

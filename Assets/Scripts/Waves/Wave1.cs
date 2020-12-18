@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wave1 : MonoBehaviour
+public class Wave1 : Wave
 {
     void OnEnable()
     {
         BulletManager.LoadBullets();
         EnemyManager.LoadEnemies();
-        GameObject enm1 = Instantiate(EnemyManager.getPrefab("Skeleton"), new Vector2(0, 6), Quaternion.Euler(0, 180, 0));
+        GameObject enm1 = Instantiate(EnemyManager.getPrefab("Skeleton"), new Vector2(0, 6), Quaternion.identity);
         enm1.transform.SetParent(transform);
-        GameObject enm2 = Instantiate(EnemyManager.getPrefab("Skeleton"), new Vector2(-2, 8), Quaternion.Euler(0, 180, 0));
+        GameObject enm2 = Instantiate(EnemyManager.getPrefab("Skeleton"), new Vector2(-2, 8), Quaternion.identity);
         enm2.transform.SetParent(transform);
-        GameObject enm3 = Instantiate(EnemyManager.getPrefab("Skeleton"), new Vector2(2, 8), Quaternion.Euler(0, 180, 0));
+        GameObject enm3 = Instantiate(EnemyManager.getPrefab("Skeleton"), new Vector2(2, 8), Quaternion.identity);
         enm3.transform.SetParent(transform);
         StartCoroutine("SkeleShot", enm1);
         StartCoroutine("SkeleShot", enm2);
@@ -23,14 +23,11 @@ public class Wave1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.childCount == 0)
-        {
-            Destroy(this.gameObject);
-        }
+      
     }
 
     //Defines Enemy Behavior
-    IEnumerator SkeleShot(GameObject enm)
+    private IEnumerator SkeleShot(GameObject enm)
     {
         float moveTimer = 0;
         while (moveTimer < 2)
@@ -43,15 +40,5 @@ public class Wave1 : MonoBehaviour
             BulletManager.Fire("Skele_Bullet", enm.transform.position, -90, 3);
             yield return new WaitForSeconds(0.5f);
         }
-    }
-
-    IEnumerator Termination()
-    {
-        yield return new WaitForSeconds(2f);
-        while(transform.childCount > 0)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-        Destroy(gameObject);
     }
 }

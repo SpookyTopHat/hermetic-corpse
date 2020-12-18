@@ -49,17 +49,30 @@ public class BulletManager : ScriptableObject
     /**
      * Fires a bullet prefab of the specified name, at the specified position, angle (in terms of rotation around the z-axis) and velocity.
      */
-    public static void Fire(string bulletName, Vector2 pos, float zAngle, float vel)
+    public static GameObject Fire(string bulletName, Vector2 pos, float zAngle, float vel)
     {
         GameObject bullet = getPrefab(bulletName);
         if (bullet != null && bullet.TryGetComponent(out BulletScript bs))
         {            
             GameObject cloon = Instantiate(bullet, pos, Quaternion.Euler(0, 0, zAngle)); //a clone of the prefab
             cloon.GetComponent<BulletScript>().setVelocity(vel);
+            return cloon;
         }
         else
         {
             Debug.Log("This object cannot be fired.");
+            return null;
+        }
+    }
+
+    public static void ClearBullets()
+    {
+        foreach(GameObject go in FindObjectsOfType(typeof(GameObject)) as GameObject[])
+        {
+            if (LayerMask.NameToLayer("Bullet") == go.layer)
+            {
+                Destroy(go);
+            }
         }
     }
 }
