@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : CharacterController
 {
-    public bool isIFrame;
+    public bool IsIFrame { get; private set; }
 
     private void Start()
     {
@@ -14,22 +14,20 @@ public class PlayerController : CharacterController
 
     public override void PhysicalHit(int damage)
     {
-
         setHealth(getHealth()-damage);
-
         if (getHealth() <= 0)
         {
             PhysicalDeath();
         }
         else
         {
-            isIFrame = true;
+            IsIFrame = true;
             Invoke("IFrames", 2);
         }
     }
 
     void IFrames()
     {
-        isIFrame = false;
+        IsIFrame = false;
     }
 }

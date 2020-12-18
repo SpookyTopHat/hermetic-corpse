@@ -6,7 +6,7 @@ public class Wave2 : Wave
 {
     private Camera mainCam;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable ()
     {
         mainCam = FindObjectOfType<Camera>();//This assumes that the main camera is the only camera in play - a dangerous assumption
         BulletManager.LoadBullets();

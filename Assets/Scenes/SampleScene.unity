@@ -196,7 +196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1257229480}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &129876008
 MonoBehaviour:
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 129876006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51b7df8797e718479ef8c57f6ca774a, type: 3}
+  m_Script: {fileID: 11500000, guid: b3314c400eec3de478abd2768d87ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &278686985
@@ -498,7 +498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1257229480}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &632178826
 MonoBehaviour:
@@ -609,9 +609,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 632178825}
   - {fileID: 129876007}
   - {fileID: 1404055168}
+  - {fileID: 632178825}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -656,7 +656,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1257229480}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611393988 stripped
 GameObject:
@@ -880,6 +880,10 @@ PrefabInstance:
     - target: {fileID: 1843756213743985171, guid: c37b5f5a6a5a4b443bc24fb3844dd5e9, type: 3}
       propertyPath: m_Name
       value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843756213743985171, guid: c37b5f5a6a5a4b443bc24fb3844dd5e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37b5f5a6a5a4b443bc24fb3844dd5e9, type: 3}

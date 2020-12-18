@@ -20,7 +20,7 @@ public class PlayerBulletHitbox : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet")
-            && !pc.isIFrame)
+            && !pc.IsIFrame)
         {
             pc.PhysicalHit(collision.gameObject.GetComponent<BulletScript>().damage);
             Destroy(collision.gameObject);
