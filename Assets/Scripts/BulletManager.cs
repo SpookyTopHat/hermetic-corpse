@@ -54,9 +54,9 @@ public class BulletManager : ScriptableObject
         GameObject bullet = getPrefab(bulletName);
         if (bullet != null && bullet.TryGetComponent(out BulletScript bs))
         {            
-            GameObject cloon = Instantiate(bullet, pos, Quaternion.Euler(0, 0, zAngle)); //a clone of the prefab
-            cloon.GetComponent<BulletScript>().setVelocity(vel);
-            return cloon;
+            GameObject clone = Instantiate(bullet, pos, Quaternion.Euler(0, 0, zAngle)); //a clone of the prefab
+            clone.GetComponent<BulletScript>().setVelocity(vel);
+            return clone;
         }
         else
         {
